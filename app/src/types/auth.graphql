@@ -1,0 +1,13 @@
+type UserToken {
+    user: User!
+    token: String!
+}
+
+input AuthInput{
+    username: String
+    password: String
+}
+
+type Mutation{
+    login(user: AuthInput!) : UserToken
+}

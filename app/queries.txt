@@ -1,0 +1,81 @@
+mutation newrole{
+	createRole(name: "Tutor"){
+    name
+  }
+}
+
+query users{
+  users{
+    id
+    username
+    email
+    password
+  }
+}
+
+query roles{
+  roles{
+    id
+    name
+  }
+}
+
+mutation criandousuario{
+  createUser(
+    user:{
+      username:"gabrielespindola",
+      firstName:"Gabrie",
+      lastName:"Espindola",
+      email: "gabriel.espindola@e-create.com.br",
+      password: "123456"
+      roleName: "Aluno"
+    }
+  ){
+    email
+    role{
+      name
+    }
+  }
+}
+
+mutation criandooutrousuario{
+  createUser(
+    user:{
+      username:"gabrielcunha",
+      firstName:"Gabriel",
+      lastName:"Cunha",
+      email: "gabriel.cunha@celso.com.br",
+      password: "123456"
+      roleName: "Administrador"
+    }
+  ){
+    email
+    role{
+      name
+    }
+  }
+}
+
+mutation authuser1{
+  login(user: {
+    username:"gabrielespindola"
+    password:"123456"
+  }){
+    token
+  }
+}
+
+mutation authuser2{
+  login(user: {
+    username:"gabrielcunha"
+    password:"123456"
+  }){
+    token
+    user{
+      username
+      role{
+        name
+      }
+    }
+  }
+}
